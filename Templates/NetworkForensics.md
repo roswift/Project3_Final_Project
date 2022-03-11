@@ -7,6 +7,7 @@ You must inspect your traffic capture to answer the following questions:
 
 1. What is the domain name of the users' custom site?
 > Command: `ip.addr == 10.6.12.0/24`
+>
 > Answer: Using `Network (IP) Address resolution` and then filtering the command above, I noticed that `Frank-n-Ted-DC. frank-n-ted.com` was the domain name of the users' custom site. 
 
 
@@ -32,21 +33,23 @@ You must inspect your traffic capture to answer the following questions:
 1. Find the following information about the infected Windows machine:
 > Command: `ip.addr == 172.16.4.0/24`
 
-    - Host name
-    > Answer: `ROTTERDAM-PC`
+   - Host name
+   > Answer: `ROTTERDAM-PC`
 
-    - IP address
-    > Answer: `172.16.4.205`
+   - IP address
+   > Answer: `172.16.4.205`
 
-    - MAC address
-    > Answer: `00:59:07:b0:63:a4`
+   - MAC address
+   > Answer: `00:59:07:b0:63:a4`
     
 2. What is the username of the Windows user whose computer is infected?
-> Command: `p.src == 172.16.4.205 && kerberos.CNameString` 
+> Command: `p.src == 172.16.4.205 && kerberos.CNameString`
+> 
 > Answer: `matthijs.devries`
 
 3. What are the IP addresses used in the actual infection traffic?
 > Command: `Statistics -> Conversations -> "filter by Packets"`
+>
 > Answer: The IP's were `185.243.115.84` and `166.62.111.64`. 
 
 4. As a bonus, retrieve the desktop background of the Windows host.
