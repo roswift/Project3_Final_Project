@@ -8,7 +8,6 @@
 - Suggestions for Going Further
 
 ### Network Topology
-_TODO: Fill out the information below._
 
 The following machines were identified on the network:
 - Name of VM 1: Kali
@@ -67,7 +66,7 @@ Traffic to these services should be carefully monitored. To this end, we have im
    
   - **Reliability**: I would classify this alert as `Medium` reliability as it would not generate a lof of false positives/negatives.
 
-![excessive_http](images/watcher_excessivehttp.JPG)
+![excessive_http](../images/watcher_excessivehttp.JPG)
  
 #### CPU Usage Monitor
 
@@ -79,7 +78,7 @@ Traffic to these services should be carefully monitored. To this end, we have im
   - **Reliability**: Given that this alert triggers when CPU's usage is above 50% for 5 minutes, it can generate a large number of false positives. Many processes running individually or simultaniously will cause a CPU's usage to be above the threshold. However, it would be considered a `High` reliability alert. 
 
 
-![CPU_usage](images/watcher_cpuusage.JPG)
+![CPU_usage](../images/watcher_cpuusage.JPG)
 
 #### HTTP Request Size Monitor
 
@@ -89,7 +88,7 @@ Traffic to these services should be carefully monitored. To this end, we have im
   - **Vulnerability Mitigated**: Filtering the information by http request bytes will prevent against DDoS attacks. 
   - **Reliability**: This alert would not create many false positive because of the time window at which a DDoS attack occurs. Typically the number of bytes requested during a DDoS would be better measured in seconds, not minutes. Since the alert is configured for a 1 minute time window, the results would be valid. I would rate this alert as `Medium` reliability.
 
-![http_request_size](images/watcher_httprequestsize.JPG)
+![http_request_size](../images/watcher_httprequestsize.JPG)
 
 
 ### Suggestions for Going Further
