@@ -30,14 +30,45 @@ This scan identifies the services below as potential points of entry:
 
 The following vulnerabilities were identified on each target:
 - `Target 1`
-  - List of
-  - Critical
-  - Vulnerabilities
-
-_TODO: Include vulnerability scan results to prove the identified vulnerabilities._
+  - [CVE-2021-28041 open SSH](https://nvd.nist.gov/vuln/detail/CVE-2021-28041)
+  - [CVE-2017-15710 Apache https 2.4.10](https://nvd.nist.gov/vuln/detail/CVE-2017-15710)
+  - [CVE-2017-8779 exploit on open rpcbind port could lead to remote DoS](https://nvd.nist.gov/vuln/detail/CVE-2017-8779) 
+  - [CVE-2017-7494 Samba NetBIOS](https://nvd.nist.gov/vuln/detail/CVE-2017-7494)
 
 ### Exploitation
-_TODO: Fill out the details below. Include screenshots where possible._
+- Enumeration and Network Mapping
+  - Nmap was used to discover open ports
+    - This helped me determine how best to attack the system
+![nmap1](../images/nmap1.JPG)
+![nmap2](../images/nmap2.JPG)
+
+- Weak passwords
+  - In this case `michael`'s password was `michael`. 
+    - A password this simple is easily guessed by a hacker. Guessing this password without using a Brute Forcing method would make it difficult for the defense to detect that it was a malicious user who logged in, rather than Michael. 
+
+![hydra](../images/hydra_michael.JPG)
+
+- MySQL Database Access
+  - Wpscan enumerated users
+    - Using SSH with `Michael`'s password above, I was able to access the WordPress database
+
+![wpscan1](../images/wpscan1.JPG)
+![wpscan2](../images/wpscan2.JPG)
+![wpscan3](../images/wpscan3.JPG)
+![ssh_command](../images/ssh_command.JPG)
+![wp_config_username_password](../images/wp_config_username_password.JPG)
+![wp_config_keys](../images/wp_config_keys.JPG)
+![mysql_login](../images/mysql_login.JPG)
+
+
+- MySQL Data Exfiltration
+  - I was able to navigate through the database and find multiple important tables such as:
+    - `wp_users`
+    - `wp_posts`
+
+![wpscan1](../images/wpscan1.JPG)
+![wpscan2](../images/wpscan2.JPG)
+![wpscan3](../images/wpscan3.JPG)
 
 The Red Team was able to penetrate `Target 1` and retrieve the following confidential data:
 - Target 1
