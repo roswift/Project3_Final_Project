@@ -22,7 +22,7 @@ You must inspect your traffic capture to answer the following questions:
 
 
 4. Upload the file to [VirusTotal.com](https://www.virustotal.com/gui/). 
-> ![virustotal](images/virustoatl.JPG)
+> ![virustotal](../images/virustotal.JPG)
 
 
 6. What kind of malware is this classified as?
@@ -53,7 +53,7 @@ You must inspect your traffic capture to answer the following questions:
 > Answer: The IP's were `185.243.115.84` and `166.62.111.64`. 
 
 4. As a bonus, retrieve the desktop background of the Windows host.
-> ![background](images/desktop_background.JPG)
+> ![background](../images/desktop_background.JPG)
 
 
 ---
@@ -73,6 +73,6 @@ You must inspect your traffic capture to answer the following questions:
     > Answer: `BLANCO-DESKTOP Windows NT 10.0`
 
 2. Which torrent file did the user download?
-> ![bettyboop](images/bettyboop.JPG)
+> ![bettyboop](../images/bettyboop.JPG)
 >
->![bettyboop](images/bettyboop_image.JPG)
+> ![bettyboop](../images/bettyboop_image.JPG)
